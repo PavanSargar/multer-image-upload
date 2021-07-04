@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload using multer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        text-align: center;
+      }
+
+      .upload-btn{
+        padding: 0.5rem 2rem;
+        border: none;
+        outline: none;
+        background-color: lightblue;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .uploaded-images {
+        margin: 0 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .image {
+        height: 200px;
+        width: 200px;
+        box-shadow: 0 15px 15px grey;
+        transition: ease-in-out .2s;
+      }
+      .image:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    
+    <!-- <form action="/uploadFile" enctype="multipart/form-data" method="post">
+      <input type="file" name="myFile" />
+      <input type="submit" value="Upload File" />
+    </form>
+
+    <form action="/uploadMultiple" enctype="multipart/form-data" method="post">
+      <input type="file" name="myFiles" multiple />
+      <input type="submit" value="Upload Multiple File" />
+    </form> -->
+    <div class="container">
+      <h1>Image Upload using Multer</h1>
+      <div class="form">
+        <form action="/uploadPhoto" enctype="multipart/form-data" method="post">
+          <input class="choose-file-btn" type="file" name="myImage" />
+          <input class="upload-btn" type="submit" value="Upload Photo" />
+        </form>
+      </div>
+      
+      <h1>Uploaded Images</h1>
+
+      <div class="uploaded-images">
+        <% images.forEach(function(image) { %>
+              <img class="image" src="data:image/<%=image.image.contentType%>;base64,
+              <%=image.image.data.toString('base64')%>">
+        <% }); %>
+      </div>
+    </div>
+    
+
+    
+  </body>
+</html>
