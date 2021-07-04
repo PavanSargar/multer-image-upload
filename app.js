@@ -44,35 +44,7 @@ app.get("/",  (req, res) => {
       }
     });
   });
-  
-//Upload single file route
 
-// app.post("/uploadFile", upload.single("myFile"), (req, res) => {
-//     const file = req.file;
-
-//     if(!file) {
-//         const error = new Error("Please upload a file");
-//         error.httpStatusCode = 400;
-//         return nextTick(error);
-//     } 
-//     res.send(file);
-// })
-
-// //upload multiple file routes
-
-// app.post("/uploadMultiple", upload.array("myFiles", 12), (req, res, next) => {
-//     const files = req.files;
-
-//     if (!files) {
-//         const error = new Error("Please choose files");
-//         error.httpStatusCode = 400;
-
-//         return next(error);
-//     }
-//      res.send(files)
-// });
-
-// image uploading to the database
 
 const imageSchema = new mongoose.Schema({
     image: {
